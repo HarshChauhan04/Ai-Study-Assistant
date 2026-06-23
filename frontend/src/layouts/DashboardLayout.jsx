@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
-import { Outlet } from 'react-router-dom';
+import { Outlet, useLocation } from 'react-router-dom';
 import Sidebar from '../components/Sidebar';
 import Header from '../components/Header';
 
 const DashboardLayout = () => {
+  const location = useLocation();
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   const toggleSidebar = (value) => {
@@ -22,7 +23,7 @@ const DashboardLayout = () => {
 
         {/* Scrollable Viewport */}
         <main className="flex-1 overflow-y-auto p-5 md:p-6 focus:outline-none">
-          <div className="mx-auto max-w-7xl" style={{ animation: 'fade-in 0.4s ease-out forwards' }}>
+          <div key={location.pathname} className="mx-auto max-w-7xl animate-fade-in">
             <Outlet />
           </div>
         </main>

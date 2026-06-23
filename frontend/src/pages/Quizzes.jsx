@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import api from '../services/api';
 import { GraduationCap, FileText, CheckCircle2, XCircle, Loader, RotateCcw, AlertCircle, Sparkles } from 'lucide-react';
 import Toast from '../components/Toast';
 import { SkeletonTable } from '../components/SkeletonLoader';
 
 const Quizzes = () => {
+  const location = useLocation();
   const [documents, setDocuments] = useState([]);
   const [selectedDocId, setSelectedDocId] = useState('');
   const [pastQuizzes, setPastQuizzes] = useState([]);
@@ -35,7 +37,13 @@ const Quizzes = () => {
       try {
         const response = await api.get('/documents');
         setDocuments(response.data);
-        if (response.data.length > 0) {
+        
+        const params = new URLSearchParams(location.search);
+        const urlDocId = params.get('docId');
+        
+        if (urlDocId && response.data.some(d => d._id === urlDocId)) {
+          setSelectedDocId(urlDocId);
+        } else if (response.data.length > 0) {
           setSelectedDocId(response.data[0]._id);
         }
       } catch (err) {
@@ -46,7 +54,7 @@ const Quizzes = () => {
       }
     };
     fetchDocs();
-  }, []);
+  }, [location.search]);
 
   useEffect(() => {
     if (!selectedDocId) {

@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import api from '../services/api';
 import { Notebook, Award, ShieldAlert, Loader, AlertCircle, ChevronDown, ChevronUp, Sparkles, BookOpen } from 'lucide-react';
 import Toast from '../components/Toast';
 
 const StudyNotes = () => {
+  const location = useLocation();
   const [documents, setDocuments] = useState([]);
   const [selectedDocId, setSelectedDocId] = useState('');
   const [activeTab, setActiveTab] = useState('notes'); // 'notes', 'viva', 'topics'
@@ -34,7 +36,13 @@ const StudyNotes = () => {
       try {
         const response = await api.get('/documents');
         setDocuments(response.data);
-        if (response.data.length > 0) {
+        
+        const params = new URLSearchParams(location.search);
+        const urlDocId = params.get('docId');
+        
+        if (urlDocId && response.data.some(d => d._id === urlDocId)) {
+          setSelectedDocId(urlDocId);
+        } else if (response.data.length > 0) {
           setSelectedDocId(response.data[0]._id);
         }
       } catch (err) {
@@ -45,7 +53,7 @@ const StudyNotes = () => {
       }
     };
     fetchDocs();
-  }, []);
+  }, [location.search]);
 
   const handleGenerate = async (tabName = activeTab) => {
     if (!selectedDocId) {

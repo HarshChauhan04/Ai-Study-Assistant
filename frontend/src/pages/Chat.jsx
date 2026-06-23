@@ -1,10 +1,12 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { useLocation } from 'react-router-dom';
 import api from '../services/api';
 import { Send, Bot, BookOpenCheck, Layers, AlertCircle, Paperclip, ChevronDown } from 'lucide-react';
 import Toast from '../components/Toast';
 import { SkeletonChat } from '../components/SkeletonLoader';
 
 const Chat = () => {
+  const location = useLocation();
   const [documents, setDocuments] = useState([]);
   const [selectedDocId, setSelectedDocId] = useState('');
   const [messages, setMessages] = useState([]);
@@ -27,7 +29,15 @@ const Chat = () => {
       try {
         const response = await api.get('/documents');
         setDocuments(response.data);
-        if (response.data.length > 0) setSelectedDocId(response.data[0]._id);
+        
+        const params = new URLSearchParams(location.search);
+        const urlDocId = params.get('docId');
+        
+        if (urlDocId && response.data.some(d => d._id === urlDocId)) {
+          setSelectedDocId(urlDocId);
+        } else if (response.data.length > 0) {
+          setSelectedDocId(response.data[0]._id);
+        }
       } catch {
         triggerToast('Could not load documents', 'error');
       } finally {
@@ -35,7 +45,7 @@ const Chat = () => {
       }
     };
     fetchDocs();
-  }, []);
+  }, [location.search]);
 
   useEffect(() => {
     if (!selectedDocId) { setMessages([]); return; }
