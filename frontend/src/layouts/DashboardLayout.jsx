@@ -1,0 +1,34 @@
+import React, { useState } from 'react';
+import { Outlet } from 'react-router-dom';
+import Sidebar from '../components/Sidebar';
+import Header from '../components/Header';
+
+const DashboardLayout = () => {
+  const [sidebarOpen, setSidebarOpen] = useState(false);
+
+  const toggleSidebar = (value) => {
+    setSidebarOpen(typeof value === 'boolean' ? value : !sidebarOpen);
+  };
+
+  return (
+    <div className="flex h-screen w-screen overflow-hidden bg-slate-100 dark:bg-[#080c14] text-slate-700 dark:text-slate-300">
+      {/* Sidebar Navigation */}
+      <Sidebar isOpen={sidebarOpen} toggleSidebar={toggleSidebar} />
+
+      {/* Main Content Area */}
+      <div className="flex flex-1 flex-col overflow-hidden">
+        {/* Top Header Toolbar */}
+        <Header toggleSidebar={toggleSidebar} />
+
+        {/* Scrollable Viewport */}
+        <main className="flex-1 overflow-y-auto p-5 md:p-6 focus:outline-none">
+          <div className="mx-auto max-w-7xl" style={{ animation: 'fade-in 0.4s ease-out forwards' }}>
+            <Outlet />
+          </div>
+        </main>
+      </div>
+    </div>
+  );
+};
+
+export default DashboardLayout;
