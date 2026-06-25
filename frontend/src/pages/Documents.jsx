@@ -101,10 +101,10 @@ const Documents = () => {
         onDrop={handleDrop}
         className={`relative rounded-2xl border-2 border-dashed transition-all duration-200 p-10 text-center cursor-pointer group ${
           isDragging
-            ? 'border-violet-500 bg-violet-50 dark:bg-violet-950/20 scale-[1.01]'
+            ? 'border-blue-500 bg-blue-50 dark:bg-blue-950/20 scale-[1.01]'
             : isUploading
-            ? 'border-violet-400/50 bg-violet-50/50 dark:bg-violet-950/10'
-            : 'border-slate-300 dark:border-[#1e2d45] bg-white dark:bg-[#0e1525] hover:border-violet-400 dark:hover:border-violet-700 hover:bg-violet-50/50 dark:hover:bg-violet-950/10'
+            ? 'border-blue-400/50 bg-blue-50/50 dark:bg-blue-950/10'
+            : 'border-slate-300 dark:border-[#1e3150] bg-white dark:bg-[#0d1b2e] hover:border-blue-400 dark:hover:border-blue-700 hover:bg-blue-50/50 dark:hover:bg-blue-950/10'
         }`}
         onClick={() => !isUploading && fileInputRef.current?.click()}
       >
@@ -118,29 +118,29 @@ const Documents = () => {
 
         {/* Upload Icon */}
         <div className={`mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-2xl transition-all ${
-          isDragging ? 'bg-violet-100 dark:bg-violet-900/30 scale-110' : 'bg-slate-100 dark:bg-slate-800 group-hover:bg-violet-100 dark:group-hover:bg-violet-900/20 group-hover:scale-105'
+          isDragging ? 'bg-blue-100 dark:bg-blue-900/30 scale-110' : 'bg-slate-100 dark:bg-slate-800 group-hover:bg-blue-100 dark:group-hover:bg-blue-900/20 group-hover:scale-105'
         }`}>
           {isUploading ? (
-            <Loader className="h-8 w-8 text-violet-600 animate-spin" />
+            <Loader className="h-8 w-8 text-blue-600 animate-spin" />
           ) : isDragging ? (
-            <CloudUpload className="h-8 w-8 text-violet-600" />
+            <CloudUpload className="h-8 w-8 text-blue-600" />
           ) : (
-            <Upload className="h-8 w-8 text-slate-400 dark:text-slate-500 group-hover:text-violet-600 dark:group-hover:text-violet-400 transition-colors" />
+            <Upload className="h-8 w-8 text-slate-400 dark:text-slate-500 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors" />
           )}
         </div>
 
         {isUploading ? (
           <div>
             <h3 className="text-base font-bold text-slate-900 dark:text-white mb-1">Processing Document...</h3>
-            <p className="text-sm text-violet-600 dark:text-violet-400">{uploadProgress}</p>
+            <p className="text-sm text-blue-600 dark:text-blue-400">{uploadProgress}</p>
             <div className="mt-4 mx-auto max-w-xs h-1.5 rounded-full bg-slate-200 dark:bg-slate-700 overflow-hidden">
-              <div className="h-full rounded-full bg-gradient-to-r from-violet-500 to-purple-500 animate-[progress-bar_2s_ease-out_infinite]" style={{ width: '70%' }} />
+              <div className="h-full rounded-full bg-gradient-to-r from-blue-600 to-teal-500 animate-[progress-bar_2s_ease-out_infinite]" style={{ width: '70%' }} />
             </div>
           </div>
         ) : isDragging ? (
           <div>
-            <h3 className="text-lg font-bold text-violet-700 dark:text-violet-400">Drop to upload!</h3>
-            <p className="text-sm text-violet-500/70 mt-1">Release to start processing your PDF</p>
+            <h3 className="text-lg font-bold text-blue-700 dark:text-blue-400">Drop to upload!</h3>
+            <p className="text-sm text-blue-500/70 mt-1">Release to start processing your PDF</p>
           </div>
         ) : (
           <div>
@@ -149,7 +149,7 @@ const Documents = () => {
             </h3>
             <p className="text-sm text-slate-500 dark:text-slate-500 mb-4">
               Drag & drop your lecture PDF, or{' '}
-              <span className="text-violet-600 dark:text-violet-400 font-semibold underline underline-offset-2">
+              <span className="text-blue-600 dark:text-blue-400 font-semibold underline underline-offset-2">
                 browse files
               </span>
             </p>
@@ -163,13 +163,13 @@ const Documents = () => {
       </div>
 
       {/* === DOCUMENTS LIST === */}
-      <div className="rounded-2xl border border-slate-200 dark:border-[#1e2d45] bg-white dark:bg-[#0e1525]"
+      <div className="rounded-2xl border border-slate-200 dark:border-[#1e3150] bg-white dark:bg-[#0d1b2e]"
         style={{ boxShadow: '0 1px 3px rgba(0,0,0,0.04)' }}
       >
-        <div className="flex items-center justify-between p-5 border-b border-slate-100 dark:border-[#1e2d45]">
+        <div className="flex items-center justify-between p-5 border-b border-slate-100 dark:border-[#1e3150]">
           <div>
             <h3 className="text-sm font-bold text-slate-900 dark:text-white flex items-center gap-2">
-              <FileText className="h-4.5 w-4.5 text-violet-500" />
+              <FileText className="h-4.5 w-4.5 text-blue-600" />
               Uploaded Materials
             </h3>
             <p className="text-xs text-slate-400 dark:text-slate-600 mt-0.5">
@@ -180,7 +180,7 @@ const Documents = () => {
             onClick={() => fileInputRef.current?.click()}
             disabled={isUploading}
             className="flex items-center gap-1.5 rounded-xl text-xs font-bold text-white px-3.5 py-2 transition-all disabled:opacity-50"
-            style={{ background: 'linear-gradient(135deg, #7c3aed, #6d28d9)', boxShadow: '0 3px 10px rgba(124, 58, 237, 0.3)' }}
+            style={{ background: 'linear-gradient(135deg, #2563eb, #1d4ed8)', boxShadow: '0 3px 10px rgba(37, 99, 235, 0.3)' }}
           >
             <Upload className="h-3.5 w-3.5" />
             Upload PDF
@@ -190,7 +190,7 @@ const Documents = () => {
         {isLoading ? (
           <div className="p-5"><SkeletonTable /></div>
         ) : documents.length > 0 ? (
-          <div className="divide-y divide-slate-100 dark:divide-[#1e2d45]">
+          <div className="divide-y divide-slate-100 dark:divide-[#1e3150]">
             {documents.map((doc, i) => {
               const dateStr = new Date(doc.uploadDate).toLocaleDateString(undefined, {
                 year: 'numeric', month: 'short', day: 'numeric'
@@ -198,12 +198,12 @@ const Documents = () => {
               return (
                 <div
                   key={doc._id}
-                  className="flex items-center gap-4 px-5 py-4 hover:bg-slate-50 dark:hover:bg-[#141e33]/50 transition-colors group"
+                  className="flex items-center gap-4 px-5 py-4 hover:bg-slate-50 dark:hover:bg-[#122038]/50 transition-colors group"
                   style={{ animationDelay: `${i * 0.05}s` }}
                 >
                   {/* File Icon */}
-                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-violet-50 dark:bg-violet-950/20 group-hover:scale-105 transition-transform">
-                    <FileText className="h-5 w-5 text-violet-600 dark:text-violet-400" />
+                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-blue-50 dark:bg-blue-950/20 group-hover:scale-105 transition-transform">
+                    <FileText className="h-5 w-5 text-blue-600 dark:text-blue-400" />
                   </div>
 
                   {/* File Info */}
@@ -244,7 +244,7 @@ const Documents = () => {
             <button
               onClick={() => fileInputRef.current?.click()}
               className="inline-flex items-center gap-2 rounded-xl px-5 py-2.5 text-sm font-bold text-white transition-all hover:-translate-y-0.5"
-              style={{ background: 'linear-gradient(135deg, #7c3aed, #6d28d9)', boxShadow: '0 4px 14px rgba(124, 58, 237, 0.3)' }}
+              style={{ background: 'linear-gradient(135deg, #2563eb, #1d4ed8)', boxShadow: '0 4px 14px rgba(37, 99, 235, 0.3)' }}
             >
               <Upload className="h-4 w-4" />
               Upload First PDF
