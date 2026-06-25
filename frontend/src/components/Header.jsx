@@ -121,7 +121,7 @@ const Header = ({ toggleSidebar }) => {
   );
 
   return (
-    <header className="h-16 flex items-center justify-between border-b border-slate-200 dark:border-[#1e2d45] bg-white/90 dark:bg-[#0e1525]/90 backdrop-blur-xl px-5 sticky top-0 z-30"
+    <header className="h-16 flex items-center justify-between border-b border-slate-200 dark:border-[#1e3150] bg-white/90 dark:bg-[#0d1b2e]/90 backdrop-blur-xl px-5 sticky top-0 z-30"
       style={{ boxShadow: '0 1px 3px rgba(0,0,0,0.04)' }}
     >
       {/* Left: Menu + Page Title */}
@@ -160,7 +160,7 @@ const Header = ({ toggleSidebar }) => {
           aria-label="Notifications"
         >
           <Bell className="h-4.5 w-4.5" />
-          <span className="absolute top-2 right-2 h-2 w-2 rounded-full bg-violet-500 border border-white dark:border-[#0e1525]" />
+          <span className="absolute top-2 right-2 h-2 w-2 rounded-full bg-blue-500 border border-white dark:border-[#0d1b2e]" />
         </button>
 
         {/* Theme Toggle */}
@@ -190,7 +190,7 @@ const Header = ({ toggleSidebar }) => {
             </div>
             <div
               className="flex h-8 w-8 items-center justify-center rounded-full text-xs font-bold text-white select-none shadow-sm"
-              style={{ background: 'linear-gradient(135deg, #7c3aed, #06b6d4)', boxShadow: '0 2px 8px rgba(124, 58, 237, 0.2)' }}
+              style={{ background: 'linear-gradient(135deg, #2563eb, #0d9488)', boxShadow: '0 2px 8px rgba(37, 99, 235, 0.2)' }}
             >
               {getInitials(user?.name)}
             </div>
@@ -203,7 +203,7 @@ const Header = ({ toggleSidebar }) => {
               
               {/* Dropdown menu */}
               <div 
-                className="absolute right-0 mt-2.5 w-52 rounded-2xl border border-slate-200 dark:border-[#1e2d45] bg-white dark:bg-[#141e33] shadow-xl p-2 z-50 animate-fade-in"
+                className="absolute right-0 mt-2.5 w-52 rounded-2xl border border-slate-200 dark:border-[#1e3150] bg-white dark:bg-[#0d1b2e] shadow-xl p-2 z-50"
                 style={{ animation: 'slide-up 0.2s cubic-bezier(0.16, 1, 0.3, 1) forwards' }}
               >
                 {/* Header */}
@@ -247,11 +247,11 @@ const Header = ({ toggleSidebar }) => {
           
           {/* Search Dropdown */}
           <div 
-            className="absolute top-full left-0 right-0 mx-5 mt-2 rounded-2xl bg-white dark:bg-[#141e33] border border-slate-200 dark:border-[#1e2d45] shadow-2xl z-50 flex flex-col overflow-hidden animate-fade-in"
+            className="absolute top-full left-0 right-0 mx-5 mt-2 rounded-2xl bg-white dark:bg-[#0d1b2e] border border-slate-200 dark:border-[#1e3150] shadow-2xl z-50 flex flex-col overflow-hidden"
             style={{ animation: 'slide-up 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards' }}
           >
             {/* Input Field */}
-            <div className="p-4 border-b border-slate-100 dark:border-slate-800/80 bg-slate-50/50 dark:bg-[#0e1525]/30 flex items-center gap-3.5">
+            <div className="p-4 border-b border-slate-100 dark:border-[#1e3150] bg-slate-50/50 dark:bg-[#0a1628]/30 flex items-center gap-3.5">
               <Search className="h-5 w-5 text-slate-400 shrink-0 animate-pulse-slow" />
               <input
                 ref={searchInputRef}
@@ -287,11 +287,11 @@ const Header = ({ toggleSidebar }) => {
                           onClick={() => handleSearchNavigate(p.path)}
                           className="flex items-center gap-3 rounded-xl p-2 hover:bg-slate-50 dark:hover:bg-[#0e1525] transition-all text-left w-full group"
                         >
-                          <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-violet-500/10 text-violet-500 group-hover:bg-violet-500 group-hover:text-white transition-colors shrink-0">
+                          <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-blue-500/10 text-blue-600 group-hover:bg-blue-600 group-hover:text-white transition-colors shrink-0">
                             <Icon className="h-4 w-4" />
                           </div>
                           <div className="min-w-0">
-                            <p className="text-xs font-bold text-slate-800 dark:text-slate-250 truncate group-hover:text-violet-600 dark:group-hover:text-violet-400 transition-colors">{p.name}</p>
+                            <p className="text-xs font-bold text-slate-800 dark:text-slate-250 truncate group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">{p.name}</p>
                             <p className="text-[10px] text-slate-400 dark:text-slate-500 truncate">{p.desc}</p>
                           </div>
                         </button>
@@ -307,7 +307,7 @@ const Header = ({ toggleSidebar }) => {
                 
                 {loadingDocs ? (
                   <div className="flex items-center justify-center py-6 text-xs text-slate-400 gap-2">
-                    <span className="h-4 w-4 border-2 border-slate-300 border-t-violet-500 rounded-full animate-spin" />
+                    <span className="h-4 w-4 border-2 border-slate-300 border-t-blue-500 rounded-full animate-spin" />
                     Searching database...
                   </div>
                 ) : filteredDocs.length > 0 ? (
@@ -336,7 +336,7 @@ const Header = ({ toggleSidebar }) => {
                         <div className="flex items-center gap-1 opacity-70 md:opacity-0 group-hover:opacity-100 transition-opacity">
                           <button
                             onClick={() => handleSearchNavigate(`/chat?docId=${doc._id}`)}
-                            className="px-2 py-1 text-[9px] font-bold rounded-lg bg-violet-500/10 text-violet-500 hover:bg-violet-500 hover:text-white transition-all cursor-pointer"
+                            className="px-2 py-1 text-[9px] font-bold rounded-lg bg-blue-500/10 text-blue-600 hover:bg-blue-600 hover:text-white transition-all cursor-pointer"
                             title="Chat with AI"
                           >
                             Chat
@@ -350,7 +350,7 @@ const Header = ({ toggleSidebar }) => {
                           </button>
                           <button
                             onClick={() => handleSearchNavigate(`/flashcards?docId=${doc._id}`)}
-                            className="px-2 py-1 text-[9px] font-bold rounded-lg bg-purple-500/10 text-purple-500 hover:bg-purple-500 hover:text-white transition-all cursor-pointer"
+                            className="px-2 py-1 text-[9px] font-bold rounded-lg bg-teal-500/10 text-teal-600 hover:bg-teal-600 hover:text-white transition-all cursor-pointer"
                             title="Flashcards"
                           >
                             Cards
@@ -384,12 +384,12 @@ const Header = ({ toggleSidebar }) => {
             </div>
 
             {/* Footer Actions */}
-            <div className="p-3 border-t border-slate-150 dark:border-slate-800/80 bg-slate-50/50 dark:bg-[#0e1525]/30 text-center flex items-center justify-between px-4">
+            <div className="p-3 border-t border-slate-150 dark:border-[#1e3150] bg-slate-50/50 dark:bg-[#0a1628]/30 text-center flex items-center justify-between px-4">
               <span className="text-[10px] text-slate-400 dark:text-slate-500 leading-none">
                 💡 Clicking shortcuts will automatically select the document inside that tool.
               </span>
               <span className="text-[10px] text-slate-400 dark:text-slate-500 leading-none hidden sm:inline">
-                Press <kbd className="px-1.5 py-0.5 rounded border border-slate-200 dark:border-slate-700 bg-white dark:bg-[#141e33] text-[9px]">Esc</kbd>
+                 <kbd className="px-1.5 py-0.5 rounded border border-slate-200 dark:border-slate-700 bg-white dark:bg-[#0d1b2e] text-[9px]">Esc</kbd>
               </span>
             </div>
 

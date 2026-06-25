@@ -64,7 +64,7 @@ const Dashboard = () => {
         <button
           onClick={() => { setIsLoading(true); setError(''); }}
           className="px-5 py-2.5 rounded-xl text-sm font-bold text-white transition-all"
-          style={{ background: 'linear-gradient(135deg, #7c3aed, #6d28d9)', boxShadow: '0 4px 12px rgba(124, 58, 237, 0.3)' }}
+          style={{ background: 'linear-gradient(135deg, #2563eb, #1d4ed8)', boxShadow: '0 4px 12px rgba(37, 99, 235, 0.3)' }}
         >
           Retry
         </button>
@@ -80,10 +80,10 @@ const Dashboard = () => {
       value: stats.totalDocuments,
       desc: '+2 this week',
       icon: FileText,
-      gradient: 'from-violet-500 to-purple-600',
-      shadow: 'rgba(124, 58, 237, 0.3)',
-      bg: 'bg-violet-50 dark:bg-violet-950/20',
-      iconColor: 'text-violet-600 dark:text-violet-400',
+      gradient: 'from-blue-600 to-indigo-700',
+      shadow: 'rgba(37, 99, 235, 0.3)',
+      bg: 'bg-blue-50 dark:bg-blue-950/20',
+      iconColor: 'text-blue-600 dark:text-blue-400',
       link: '/documents',
       trend: '+12%',
       positive: true,
@@ -134,7 +134,7 @@ const Dashboard = () => {
 
       {/* Welcome Banner */}
       <div className="rounded-2xl overflow-hidden relative" style={{
-        background: 'linear-gradient(135deg, #2e1065 0%, #4c1d95 50%, #0e7490 100%)',
+        background: 'linear-gradient(135deg, #1e3a8a 0%, #1d4ed8 50%, #0d9488 100%)',
         minHeight: '120px',
       }}>
         {/* Background decorations */}
@@ -145,11 +145,11 @@ const Dashboard = () => {
         <div className="relative z-10 p-6 md:p-8">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
             <div>
-              <p className="text-violet-200/80 text-sm font-medium mb-1">{greeting} 👋</p>
+              <p className="text-blue-200/80 text-sm font-medium mb-1">{greeting} 👋</p>
               <h2 className="text-2xl md:text-3xl font-extrabold text-white tracking-tight">
                 {user?.name?.split(' ')[0] || 'Student'}
               </h2>
-              <p className="text-violet-200/70 text-sm mt-1">
+              <p className="text-blue-200/70 text-sm mt-1">
                 Ready to level up? You have {stats.totalDocuments} documents to explore.
               </p>
             </div>
@@ -163,7 +163,7 @@ const Dashboard = () => {
               </Link>
               <Link
                 to="/chat"
-                className="flex items-center gap-2 rounded-xl bg-white text-violet-700 px-4 py-2.5 text-xs font-bold hover:bg-violet-50 transition-colors shadow-lg"
+                className="flex items-center gap-2 rounded-xl bg-white text-blue-700 px-4 py-2.5 text-xs font-bold hover:bg-blue-50 transition-colors shadow-lg"
               >
                 <Zap className="h-4 w-4" />
                 Start Chatting
@@ -179,7 +179,7 @@ const Dashboard = () => {
           <Link
             key={card.name}
             to={card.link}
-            className="group rounded-2xl border border-slate-200 dark:border-[#1e2d45] bg-white dark:bg-[#0e1525] p-5 transition-all duration-300 hover:-translate-y-1 block"
+            className="group rounded-2xl border border-slate-200 dark:border-[#1e3150] bg-white dark:bg-[#0d1b2e] p-5 transition-all duration-300 hover:-translate-y-1 block"
             style={{ boxShadow: '0 1px 3px rgba(0,0,0,0.04)' }}
           >
             <div className="flex items-start justify-between mb-4">
@@ -198,7 +198,7 @@ const Dashboard = () => {
             </div>
             <div className="text-xs font-semibold text-slate-500 dark:text-slate-500 mb-0.5">{card.name}</div>
             <div className="text-[10px] text-slate-400 dark:text-slate-600">{card.desc}</div>
-            <div className="mt-3 flex items-center text-xs font-semibold text-violet-600 dark:text-violet-400 opacity-0 group-hover:opacity-100 transition-opacity">
+            <div className="mt-3 flex items-center text-xs font-semibold text-blue-600 dark:text-blue-400 opacity-0 group-hover:opacity-100 transition-opacity">
               Open <ArrowUpRight className="h-3 w-3 ml-0.5" />
             </div>
           </Link>
@@ -208,13 +208,13 @@ const Dashboard = () => {
       {/* Charts Row */}
       <div className="grid grid-cols-1 gap-5 lg:grid-cols-3">
         {/* Area Chart - Weekly Activity */}
-        <div className="lg:col-span-2 rounded-2xl border border-slate-200 dark:border-[#1e2d45] bg-white dark:bg-[#0e1525] p-6"
+        <div className="lg:col-span-2 rounded-2xl border border-slate-200 dark:border-[#1e3150] bg-white dark:bg-[#0d1b2e] p-6"
           style={{ boxShadow: '0 1px 3px rgba(0,0,0,0.04)' }}
         >
           <div className="flex items-center justify-between mb-6">
             <div>
               <h3 className="text-sm font-bold text-slate-900 dark:text-white flex items-center gap-2">
-                <div className="h-2 w-2 rounded-full bg-violet-500" />
+                <div className="h-2 w-2 rounded-full bg-blue-600" />
                 Weekly Activity
               </h3>
               <p className="text-xs text-slate-400 dark:text-slate-600 mt-0.5">Actions logged across all tools</p>
@@ -230,8 +230,8 @@ const Dashboard = () => {
                 <AreaChart data={analytics.weeklyActivity} margin={{ top: 5, right: 0, left: -20, bottom: 0 }}>
                   <defs>
                     <linearGradient id="colorActions" x1="0" y1="0" x2="0" y2="1">
-                      <stop offset="5%" stopColor="#7c3aed" stopOpacity={0.25} />
-                      <stop offset="95%" stopColor="#7c3aed" stopOpacity={0} />
+                      <stop offset="5%" stopColor="#2563eb" stopOpacity={0.25} />
+                      <stop offset="95%" stopColor="#2563eb" stopOpacity={0} />
                     </linearGradient>
                   </defs>
                   <CartesianGrid strokeDasharray="3 3" stroke="currentColor" className="text-slate-100 dark:text-slate-800" />
@@ -240,14 +240,14 @@ const Dashboard = () => {
                   <Tooltip
                     contentStyle={{
                       borderRadius: '12px',
-                      backgroundColor: '#1e1b4b',
+                      backgroundColor: '#0f1e3d',
                       color: '#e2e8f0',
-                      border: '1px solid rgba(124, 58, 237, 0.3)',
+                      border: '1px solid rgba(37, 99, 235, 0.3)',
                       fontSize: '12px',
                       boxShadow: '0 8px 24px rgba(0,0,0,0.3)',
                     }}
                   />
-                  <Area type="monotone" dataKey="actions" name="Activity" stroke="#7c3aed" strokeWidth={2.5} fillOpacity={1} fill="url(#colorActions)" dot={false} />
+                  <Area type="monotone" dataKey="actions" name="Activity" stroke="#2563eb" strokeWidth={2.5} fillOpacity={1} fill="url(#colorActions)" dot={false} />
                 </AreaChart>
               </ResponsiveContainer>
             ) : (
@@ -261,7 +261,7 @@ const Dashboard = () => {
         </div>
 
         {/* Bar Chart - Quiz Scores */}
-        <div className="rounded-2xl border border-slate-200 dark:border-[#1e2d45] bg-white dark:bg-[#0e1525] p-6"
+        <div className="rounded-2xl border border-slate-200 dark:border-[#1e3150] bg-white dark:bg-[#0d1b2e] p-6"
           style={{ boxShadow: '0 1px 3px rgba(0,0,0,0.04)' }}
         >
           <div className="mb-6">
@@ -305,7 +305,7 @@ const Dashboard = () => {
               <div className="h-full flex flex-col items-center justify-center text-center">
                 <GraduationCap className="h-10 w-10 mb-2 text-slate-300 dark:text-slate-700" />
                 <p className="text-sm font-medium text-slate-500 dark:text-slate-500">No quizzes yet</p>
-                <Link to="/quizzes" className="text-xs text-violet-600 dark:text-violet-400 font-semibold mt-1 hover:underline">
+                <Link to="/quizzes" className="text-xs text-blue-600 dark:text-blue-400 font-semibold mt-1 hover:underline">
                   Generate your first quiz →
                 </Link>
               </div>
@@ -323,7 +323,7 @@ const Dashboard = () => {
             <h3 className="text-sm font-bold text-slate-900 dark:text-white">Recent Activity</h3>
             <p className="text-xs text-slate-400 dark:text-slate-600 mt-0.5">Your latest study actions</p>
           </div>
-          <Link to="/documents" className="text-xs font-bold text-violet-600 dark:text-violet-400 hover:underline flex items-center gap-1">
+          <Link to="/documents" className="text-xs font-bold text-blue-600 dark:text-blue-400 hover:underline flex items-center gap-1">
             View all <ChevronRight className="h-3.5 w-3.5" />
           </Link>
         </div>
@@ -338,15 +338,15 @@ const Dashboard = () => {
               const iconMap = {
                 upload: { Icon: FileCheck, color: 'text-emerald-500', bg: 'bg-emerald-50 dark:bg-emerald-950/20' },
                 chat: { Icon: MessageSquare, color: 'text-blue-500', bg: 'bg-blue-50 dark:bg-blue-950/20' },
-                quiz: { Icon: GraduationCap, color: 'text-violet-500', bg: 'bg-violet-50 dark:bg-violet-950/20' },
+                quiz: { Icon: GraduationCap, color: 'text-blue-600', bg: 'bg-blue-50 dark:bg-blue-950/20' },
                 flashcard: { Icon: FileText, color: 'text-indigo-500', bg: 'bg-indigo-50 dark:bg-indigo-950/20' },
                 study_plan: { Icon: Calendar, color: 'text-amber-500', bg: 'bg-amber-50 dark:bg-amber-950/20' },
-                notes: { Icon: BrainCircuit, color: 'text-rose-500', bg: 'bg-rose-50 dark:bg-rose-950/20' },
+                notes: { Icon: BrainCircuit, color: 'text-blue-600', bg: 'bg-blue-50 dark:bg-blue-950/20' },
               };
               const { Icon, color, bg } = iconMap[log.actionType] || { Icon: Zap, color: 'text-slate-500', bg: 'bg-slate-50 dark:bg-slate-800' };
 
               return (
-                <div key={log._id || i} className="flex items-center gap-4 py-3 border-b border-slate-100 dark:border-[#1e2d45]/60 last:border-0 hover:bg-slate-50/50 dark:hover:bg-[#141e33]/40 rounded-xl px-2 -mx-2 transition-colors">
+                <div key={log._id || i} className="flex items-center gap-4 py-3 border-b border-slate-100 dark:border-[#1e3150]/60 last:border-0 hover:bg-slate-50/50 dark:hover:bg-[#122038]/40 rounded-xl px-2 -mx-2 transition-colors">
                   <div className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-xl ${bg}`}>
                     <Icon className={`h-4.5 w-4.5 ${color}`} />
                   </div>
@@ -373,7 +373,7 @@ const Dashboard = () => {
             <Link
               to="/documents"
               className="inline-flex items-center gap-2 rounded-xl px-4 py-2 text-sm font-bold text-white transition-all"
-              style={{ background: 'linear-gradient(135deg, #7c3aed, #6d28d9)' }}
+              style={{ background: 'linear-gradient(135deg, #2563eb, #1d4ed8)' }}
             >
               Upload a Document
             </Link>

@@ -68,6 +68,7 @@ Provide your answer below based strictly on the context. If the answer is not pr
       documentId,
       question,
       answer,
+      sources: relevantChunks.map(c => ({ text: c.text, score: c.score })),
     });
 
     // Step 6: Log activity

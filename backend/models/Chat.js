@@ -19,6 +19,12 @@ const ChatSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  sources: [
+    {
+      text: { type: String },
+      score: { type: Number },
+    }
+  ],
   timestamp: {
     type: Date,
     default: Date.now,

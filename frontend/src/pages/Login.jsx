@@ -48,13 +48,13 @@ const Login = () => {
 
       {/* === LEFT PANEL (Decorative) === */}
       <div className="hidden lg:flex lg:w-[45%] xl:w-[50%] relative overflow-hidden flex-col justify-between p-12" style={{
-        background: 'linear-gradient(145deg, #2e1065 0%, #3b0764 30%, #0e7490 100%)',
+        background: 'linear-gradient(145deg, #1e3a8a 0%, #1d4ed8 50%, #0d9488 100%)',
       }}>
         {/* Background elements */}
         <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute top-[10%] left-[20%] h-[300px] w-[300px] rounded-full bg-violet-500/20 blur-[80px]" />
-          <div className="absolute bottom-[20%] right-[10%] h-[250px] w-[250px] rounded-full bg-cyan-500/15 blur-[60px]" />
-          <div className="absolute inset-0 dot-grid opacity-10" />
+          <div className="absolute top-[10%] left-[20%] h-[300px] w-[300px] rounded-full bg-blue-400/20 blur-[80px]" />
+          <div className="absolute bottom-[20%] right-[10%] h-[250px] w-[250px] rounded-full bg-teal-400/15 blur-[60px]" />
+          <div className="absolute inset-0 line-grid opacity-10" />
         </div>
 
         {/* Logo */}
@@ -67,14 +67,14 @@ const Login = () => {
 
         {/* Main content */}
         <div className="relative z-10">
-          <div className="inline-flex items-center gap-2 rounded-full bg-white/10 backdrop-blur-sm px-4 py-1.5 text-xs font-semibold text-violet-200 mb-8">
+          <div className="inline-flex items-center gap-2 rounded-full bg-white/10 backdrop-blur-sm px-4 py-1.5 text-xs font-semibold text-blue-100 mb-8">
             <Zap className="h-3.5 w-3.5" />
-            AI-powered academic excellence
+            Enterprise-grade academic platform
           </div>
           <h2 className="text-4xl font-extrabold text-white leading-tight mb-4 tracking-tight">
             Your personal<br />AI study tutor
           </h2>
-          <p className="text-violet-200/80 mb-10 leading-relaxed">
+          <p className="text-blue-200/80 mb-10 leading-relaxed">
             Upload your study materials and let AI do the heavy lifting — from complex explanations to personalized exam prep.
           </p>
 
@@ -84,7 +84,7 @@ const Login = () => {
                 <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-white/10 text-white/70">
                   <f.icon className="h-4 w-4" />
                 </div>
-                <span className="text-sm text-violet-100/90 font-medium">{f.text}</span>
+                <span className="text-sm text-blue-100/90 font-medium">{f.text}</span>
               </div>
             ))}
           </div>
@@ -95,14 +95,14 @@ const Login = () => {
           <div className="flex gap-0.5 mb-3">
             {[...Array(5)].map((_, i) => <span key={i} className="text-amber-400 text-sm">★</span>)}
           </div>
-          <p className="text-sm text-violet-100/90 italic leading-relaxed mb-3">
+          <p className="text-sm text-blue-100/90 italic leading-relaxed mb-3">
             "I studied for my finals using only StudyFlow and improved my grade by two levels. The quiz generator is crazy good."
           </p>
           <div className="flex items-center gap-2.5">
-            <div className="h-8 w-8 rounded-full bg-gradient-to-br from-cyan-400 to-blue-500 flex items-center justify-center text-white text-xs font-bold">RK</div>
+            <div className="h-8 w-8 rounded-full bg-gradient-to-br from-teal-400 to-blue-500 flex items-center justify-center text-white text-xs font-bold">RK</div>
             <div>
               <div className="text-xs font-bold text-white">Rahul Kapoor</div>
-              <div className="text-[10px] text-violet-300">B.Tech Final Year</div>
+              <div className="text-[10px] text-blue-200">B.Tech Final Year</div>
             </div>
           </div>
         </div>
@@ -113,7 +113,7 @@ const Login = () => {
         {/* Back button */}
         <Link
           to="/"
-          className="absolute top-6 left-6 flex items-center gap-1.5 text-sm font-semibold text-slate-500 hover:text-violet-600 dark:hover:text-violet-400 transition-colors"
+          className="absolute top-6 left-6 flex items-center gap-1.5 text-sm font-semibold text-slate-500 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
         >
           <ArrowLeft className="h-4 w-4" />
           Back to Home
@@ -121,7 +121,7 @@ const Login = () => {
 
         {/* Mobile logo (hidden on lg+) */}
         <div className="lg:hidden flex items-center gap-2 mb-8">
-          <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-violet-600 to-purple-700 text-white">
+          <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-blue-600 text-white">
             <Brain className="h-5 w-5" />
           </div>
           <span className="text-base font-bold text-slate-800 dark:text-white">StudyFlow AI</span>
@@ -154,7 +154,7 @@ const Login = () => {
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="you@university.edu"
                   required
-                  className="w-full pl-11 pr-4 py-3.5 rounded-xl border border-slate-200 dark:border-slate-700/60 bg-white dark:bg-[#0e1525] text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-slate-600 focus:border-violet-500 focus:ring-2 focus:ring-violet-500/15 outline-none transition-all text-sm font-medium"
+                  className="w-full pl-11 pr-4 py-3.5 rounded-xl border border-slate-200 dark:border-slate-700/60 bg-white dark:bg-[#0e1525] text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-slate-600 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/15 outline-none transition-all text-sm font-medium"
                 />
               </div>
             </div>
@@ -172,7 +172,7 @@ const Login = () => {
                   onChange={(e) => setPassword(e.target.value)}
                   placeholder="••••••••"
                   required
-                  className="w-full pl-11 pr-12 py-3.5 rounded-xl border border-slate-200 dark:border-slate-700/60 bg-white dark:bg-[#0e1525] text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-slate-600 focus:border-violet-500 focus:ring-2 focus:ring-violet-500/15 outline-none transition-all text-sm font-medium"
+                  className="w-full pl-11 pr-12 py-3.5 rounded-xl border border-slate-200 dark:border-slate-700/60 bg-white dark:bg-[#0e1525] text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-slate-600 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/15 outline-none transition-all text-sm font-medium"
                 />
                 <button
                   type="button"
@@ -190,8 +190,8 @@ const Login = () => {
               disabled={isLoading}
               className="w-full flex items-center justify-center gap-2.5 rounded-xl py-3.5 text-sm font-bold text-white disabled:opacity-50 disabled:cursor-not-allowed transition-all hover:-translate-y-0.5 active:translate-y-0"
               style={{
-                background: isLoading ? '#6d28d9' : 'linear-gradient(135deg, #7c3aed, #6d28d9)',
-                boxShadow: '0 6px 20px rgba(124, 58, 237, 0.35)',
+                background: isLoading ? '#1d4ed8' : 'linear-gradient(135deg, #2563eb, #1d4ed8)',
+                boxShadow: '0 6px 20px rgba(37, 99, 235, 0.35)',
               }}
             >
               {isLoading ? (
@@ -215,7 +215,7 @@ const Login = () => {
           {/* Register link */}
           <div className="text-center text-sm text-slate-600 dark:text-slate-400">
             Don't have an account?{' '}
-            <Link to="/register" className="font-bold text-violet-600 dark:text-violet-400 hover:underline underline-offset-2">
+            <Link to="/register" className="font-bold text-blue-600 dark:text-blue-400 hover:underline underline-offset-2">
               Create one free
             </Link>
           </div>
